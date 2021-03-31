@@ -16,6 +16,7 @@ const Message = (props) => {
 
           props.messageChange(e)
         };
+        console.log(a)
 
         return (
           <div className={s.messages}>
