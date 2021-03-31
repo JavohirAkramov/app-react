@@ -24,7 +24,7 @@ const Message = (props) => {
               <div>
                 <textarea
                   onChange={onMessageChange}
-                  placeholder="Enter your message"
+                  placeholder="O'z habaringizni kiriting"
                   ref={sendMessageRef}
                   value={props.newMessageBody}
                 ></textarea>
