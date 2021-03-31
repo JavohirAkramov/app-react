@@ -1,0 +1,40 @@
+import React from "react";
+import s from "./../Dialogs.module.css";
+import {
+  sendMessageCreater,
+  updateNewMessageBodyCreator,
+} from "../../../redux/messages-reducer.js";
+
+let sendMessageRef = React.createRef();
+
+const Message = (props) => {
+        let sendMessage = () => {
+          props.sendMessage()
+        };
+
+        let onMessageChange = (e) => {
+
+          props.messageChange(e)
+        };
+
+        return (
+          <div className={s.messages}>
+            {props.message}
+            <div>
+              <div>
+                <textarea
+                  onChange={onMessageChange}
+                  placeholder="Enter your message"
+                  ref={sendMessageRef}
+                  value={props.newMessageBody}
+                ></textarea>
+              </div>
+              <div>
+                <button onClick={sendMessage}>-=Send message=-</button>
+              </div>
+            </div>
+          </div>
+  );
+};
+
+export default Message;
