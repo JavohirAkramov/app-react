@@ -12,20 +12,12 @@ const Friend = (props) => {
 }
 
 const Friends = (props) => {
-  return (
-    <StoreContext.Consumer>
-      {
-        (store) => {
-          let friedsArray = store.getState().messagesPage.dialogs.map(el => {if (el.id <= 3) return <Friend name={el.name} img={el.img}/>});
-          return (
-            <div className={s.friendsArray}>
-              {friedsArray}
-            </div>
-          )
-        }
-      }
-    </StoreContext.Consumer>
-  )
+  let friedsArray = props.dialogs.map(el => {if (el.id <= 3) return <Friend name={el.name} img={el.img}/>});
+    return (
+      <div className={s.friendsArray}>
+        {friedsArray}
+      </div>
+    )
 }
 
 export default Friends;

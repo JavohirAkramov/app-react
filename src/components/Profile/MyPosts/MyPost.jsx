@@ -1,7 +1,6 @@
 import React from "react";
 import s from "./MyPost.module.css";
 import Post from "./Post/Post.jsx";
-import StoreContext from "./../../../StoreContext.js";
 
 const MyPost = (props) => {
   let post = props.posts.map((p) => (

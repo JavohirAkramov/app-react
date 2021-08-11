@@ -1,10 +1,11 @@
 import react from "react";
 import s from "./Post.module.css";
+import ustun from './../../../../assets/images/Ustun.jpg';
 
 const Post = (props, state) => {
   return (
     <div className={s.item}>
-      <img className={s.img} src="https://cdn.pixabay.com/photo/2021/02/05/07/35/winter-5983671_960_720.jpg"/>
+      <img className={s.img} src={ustun}/>
       {props.message}
       <button>Like   {props.likes}</button>
     </div>

@@ -7,6 +7,10 @@ import {
 
 let sendMessageRef = React.createRef();
 
+const Messages = (props) => {
+  return <div className={s.message}>{props.message}</div>;
+};
+
 const Message = (props) => {
         let sendMessage = () => {
           props.sendMessage()
@@ -16,11 +20,12 @@ const Message = (props) => {
 
           props.messageChange(e)
         };
-        console.log(a)
+
+        let message = props.messages.map((m) => <Messages message={m.message} key={m.id}/>);
 
         return (
           <div className={s.messages}>
-            {props.message}
+            {message}
             <div>
               <div>
                 <textarea
