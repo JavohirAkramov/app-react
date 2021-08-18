@@ -5,11 +5,6 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS'
 
 let initialState = {
-  users: [
-    {id: 1, fullName: 'Javohir Akramov', followed: false, photoURL: carpet, status: 'dasturchi', location: {country: 'O`zbekiston', city: 'Shahrisabz'}},
-    {id: 2, fullName: 'Akmal Anvarov', followed: true, photoURL: carpet, status: 'iqtisodchi', location: {country: 'Hindiston', city: 'Mumbai'}},
-    {id: 3, fullName: 'Asror Islomov', followed: false, photoURL: carpet, status: 'muhandis', location: {country: 'Pokiston', city: 'Qarachi'}}
-  ]
   users: []
 };
 
