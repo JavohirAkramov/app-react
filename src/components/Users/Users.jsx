@@ -1,5 +1,3 @@
-import react from "react";
-import s from './Users.module.css'
 import React from "react";
 import s from './Users.module.css';
 import carpet from '../../assets/images/carpet.jpg';
