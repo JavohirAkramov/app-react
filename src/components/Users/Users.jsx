@@ -3,29 +3,6 @@ import s from './Users.module.css';
 import carpet from '../../assets/images/carpet.jpg';
 import * as axios from 'axios';
 
-const Users = (props) => {
-  console.log(props.users.fullName)
-  return <div>
-    {
-      props.users.map(u => {
-        return <div>
-          <span>
-            <img className={s.avatar} src={u.photoURL}/>
-            {
-              u.followed ? <button>Unfollow</button> : <button>Follow</button>
-            }
-          </span>
-          <span>
-            <span>
-              <div>{u.fullName}</div>
-              <div>{u.status}</div>
-            </span>
-            <span
-              <div>{u.location.country}</div>
-              <div>{u.location.city}</div>
-            </span>
-          </span>
-        </div>
 class Users extends React.Component {
   constructor(props) {
     super(props);
@@ -33,11 +10,8 @@ class Users extends React.Component {
       .then(response => {
         this.props.setUsers(response.data.items)
       })
-    }
-  </div>
-};
   }
-    
+
   render() {
     return <div>
       {
