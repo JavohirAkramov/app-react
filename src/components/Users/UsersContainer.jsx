@@ -1,8 +1,10 @@
 import react from "react";
 import s from './Users.module.css'
+import react from 'react';
+import s from './Users.module.css';
 import {followAC, unfollowAC, setUsersAC} from './../../redux/users-reducer';
 import {connect} from 'react-redux';
-import Users from './Users'
+import Users from './Users';
 
 let mapStateToProps = (state) => ({
   users: state.usersPage.users

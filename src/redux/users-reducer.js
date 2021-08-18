@@ -1,4 +1,3 @@
-import carpet from './../assets/images/carpet.jpg'
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -10,6 +9,7 @@ let initialState = {
     {id: 2, fullName: 'Akmal Anvarov', followed: true, photoURL: carpet, status: 'iqtisodchi', location: {country: 'Hindiston', city: 'Mumbai'}},
     {id: 3, fullName: 'Asror Islomov', followed: false, photoURL: carpet, status: 'muhandis', location: {country: 'Pokiston', city: 'Qarachi'}}
   ]
+  users: []
 };
 
 export const usersReducer = (state = initialState, action) => {
@@ -41,6 +41,7 @@ export const usersReducer = (state = initialState, action) => {
         ...state,
         users: [...state.users, ...action.users]
       }
+      return {...state, users: [...state.users, ...action.users]}
     }
     default:
       return state
