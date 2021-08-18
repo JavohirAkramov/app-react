@@ -1,5 +1,3 @@
-import react from "react";
-import s from './Users.module.css'
 import react from 'react';
 import s from './Users.module.css';
 import {followAC, unfollowAC, setUsersAC} from './../../redux/users-reducer';
