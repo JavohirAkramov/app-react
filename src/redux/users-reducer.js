@@ -1,3 +1,4 @@
+import carpet from './../assets/images/osmon.jpg'
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
