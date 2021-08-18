@@ -32,7 +32,6 @@ class Users extends React.Component {
               </div>
               <div>
                 <div>{u.id}</div>
-                <div>{u.uniqueUrlName}</div>
               </div>
             </div>
           </div>
