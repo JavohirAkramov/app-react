@@ -3,7 +3,6 @@ import s from './Users.module.css';
 import carpet from '../../assets/images/carpet.jpg';
 
 const Users = (props) => {
-console.log(props)
   return <div>
     <div>
       {
