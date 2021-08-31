@@ -1,7 +1,6 @@
 import React from 'react';
 import s from './Users.module.css';
-import {followAC, unfollowAC, setUsersAC, setCurrentPageAC, setTotalUsersCountAC } from './../../redux/users-reducer';
-import {toggleIsFetchingsAC} from './../../redux/users-reducer';
+import {follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching } from './../../redux/users-reducer';
 import {connect} from 'react-redux';
 import Users from './Users';
 import * as axios from 'axios';
@@ -55,25 +54,6 @@ let mapStateToProps = (state) => ({
   isFetching: state.usersPage.isFetching
 });
 
-let mapDispatchToProps = (dispatch) => ({
-  follow: (userId) => {
-    dispatch(followAC(userId));
-  },
-  unfollow: (userId) => {
-    dispatch(unfollowAC(userId));
-  },
-  setUsers: (users) => {
-    dispatch(setUsersAC(users))
-  },
-  setCurrentPage: (pageNumber) => {
-    dispatch(setCurrentPageAC(pageNumber))
-  },
-  setTotalUsersCount: (totalUsersCount) => {
-    dispatch(setTotalUsersCountAC(totalUsersCount))
-  },
-  toggleIsFetching: (isFetching) => {
-    dispatch(toggleIsFetchingsAC(isFetching))
-  }
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsersAPIContainer);
+export default connect(mapStateToProps,
+  {follow, unfollow, setTotalUsersCount, setUsers, setCurrentPage, toggleIsFetching
+})(UsersAPIContainer);
