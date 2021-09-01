@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "./components/Header/Header.jsx";
 import UsersContainer from "./components/Users/UsersContainer.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
-import Profile from "./components/Profile/Profile.jsx";
+import ProfileContainer from "./components/Profile/ProfileContainer.jsx";
 import Dialogs from "./components/Dialogs/Dialogs.jsx";
 import News from "./components/News/News.jsx";
 import Video from "./components/Video/Video.jsx";
@@ -17,7 +17,7 @@ function App(props) {
         <div className="app-wrapper-content">
           <Route
             path="/profile"
-            render={() => (<Profile />)}
+            render={() => (<ProfileContainer />)}
           />
           <Route
             path="/dialogs"
