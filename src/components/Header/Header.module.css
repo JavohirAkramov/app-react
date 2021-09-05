@@ -2,13 +2,15 @@
   grid-area: h;
  background-color: seagreen;
 }
-.header .logoImg {
-  background-color:slateblue;
-  padding-left: 10px;
-  max-width: fit-content;
-  height: fit-content;
-  max-height:100%;
+.header .logoBlock {
+  float: left;
 }
-.item.active {
-  color: red;
+.header .loginBlock a {
+  float: right;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+}
+.header .loginBlock a.active {
+  color: gold;
 }

@@ -1,10 +1,9 @@
 import react from 'react';
 import s from './ProfileInfo.module.css';
-import image from '../../../assets/images/osmon.jpg';
+import image from '../../../assets/images/Bobur va men.jpg';
 import Preloader from './../../commons/Preloader/Preloader.js'
 
 const ProfileInfo = (props) => {
-  console.log(props)
   if(!props.profile) return <Preloader />
   return (
     <div className={s.content}>

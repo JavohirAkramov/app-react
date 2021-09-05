@@ -1,11 +1,13 @@
 import react from "react";
-import s from './Header.module.css'
+import s from './Header.module.css';
+import {NavLink} from 'react-router-dom';
 
 const Header = () => {
   return (
     <header className={s.header}>
-      <div className={s.logoImg}>
-        <p className={`${s.item} ${s.active}`}>logo</p>
+      <div className={s.logoBlock}>Logo"bu yerda rasm bo'lishi kerak"</div>
+      <div className={s.loginBlock}>
+        <NavLink to={"/login"} activeClassName={s.active}>Login</NavLink>
       </div>
     </header>
   );

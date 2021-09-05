@@ -4,7 +4,7 @@ import s from './Video.module.css';
 const Video = () => {
   return (
     <div>
-      Video
+      Boburjon
     </div>
   );
 }
