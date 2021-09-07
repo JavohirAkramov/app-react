@@ -6,7 +6,7 @@ let initialState = {
   login: null
 };
 
-export const profileReducer = (state = initialState, action) => {
+export const authReducer = (state = initialState, action) => {
   switch(action.type) {
     case SET_AUTH_USER_DATA: {
       return {...state, ...action.data}
