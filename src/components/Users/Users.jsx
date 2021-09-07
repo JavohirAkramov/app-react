@@ -40,9 +40,9 @@ const Users = (props) => {
                 : <button onClick={() => {
                     axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
                       withCredentials: true,
-                      headers: [
+                      headers: {
                         "API-KEY": "4225ea77-beef-451b-a7db-064b5133812e"
-                      ]
+                      }
                     })
                       .then(response => {
                         if(response.data.resultCode === 0) {
