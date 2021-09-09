@@ -1,4 +1,4 @@
-import React from 'react';
+            import React from 'react';
 import s from './Users.module.css';
 import {follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching } from './../../redux/users-reducer';
 import {connect} from 'react-redux';
