@@ -35,7 +35,7 @@ const Users = (props) => {
                 : <button onClick={() => {
                   usersAPI.followUser(u.id).then(data => {
                     if(data.resultCode === 0) {
-                          props.follow(u.id)
+                      props.follow(u.id)
                     }
                   })
                 }}>Follow</button>
