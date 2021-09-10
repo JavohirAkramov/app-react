@@ -26,31 +26,18 @@ const Users = (props) => {
             {
               u.followed
                 ? <button onClick={() => {
-
-                  axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                    {
-                      withCredentials: true,
-                      headers: {
-                        "API-KEY": "038aac11-e1ca-4f93-b471-210ba47c4258"
-                      }
-                    })
-                      .then(response => {
-                        if(response.data.resultCode === 0) {
-                          props.unfollow(u.id)
-                        }
-                      })
-
-
+                  usersAPI.unfollowUser(u.id).then(data => {
+                    if(data.resultCode === 0) {
+                      props.unfollow(u.id)
+                    }
+                  })
                 }}>Unfollow</button>
                 : <button onClick={() => {
-                  console.log("data")
                   usersAPI.followUser(u.id).then(data => {
-                    console.log(data)
-                        if(data.resultCode === 0) {
+                    if(data.resultCode === 0) {
                           props.follow(u.id)
-                        }
-                      })
-
+                    }
+                  })
                 }}>Follow</button>
             }
           </div>
