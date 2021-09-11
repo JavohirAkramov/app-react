@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Users.module.css';
-import {follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching } from './../../redux/users-reducer';
+import {follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching, toggleIsFollowingInprogress} from './../../redux/users-reducer';
 import {connect} from 'react-redux';
 import Users from './Users';
 import * as axios from 'axios';
@@ -53,5 +53,5 @@ let mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps,
-  {follow, unfollow, setTotalUsersCount, setUsers, setCurrentPage, toggleIsFetching
+  {follow, unfollow, setTotalUsersCount, setUsers, setCurrentPage, toggleIsFetching, toggleIsFollowingInprogress
 })(UsersAPIContainer);
