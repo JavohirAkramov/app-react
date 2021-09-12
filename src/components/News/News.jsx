@@ -4,7 +4,9 @@ import React from 'react'
 let News = (props) => {
   return (
     <div>
-      news
+      <button>
+        test.................................
+      </button>
     </div>
   )
 }
