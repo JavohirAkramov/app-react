@@ -22,3 +22,13 @@ export const usersAPI = {
       .then(response => response.data)
   }
 }
+export const profileAPI = {
+    getUser: (userId) => {
+      console.log(userId)
+    axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId)
+      .then(response => {
+        console.log(response)
+        return response.data
+      });
+  }
+}
