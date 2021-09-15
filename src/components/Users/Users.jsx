@@ -3,7 +3,7 @@ import s from './Users.module.css';
 import carpet from '../../assets/images/carpet.jpg';
 import {NavLink} from 'react-router-dom';
 import * as axios from 'axios';
-import {unfollowUser, followUser} from './../../API/API'
+import {usersAPI} from './../../API/API'
 
 const Users = (props) => {
   return <div>
@@ -25,26 +25,10 @@ const Users = (props) => {
             </NavLink>
             {
               u.followed
-                ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                    props.toggleFollowingProgress(true, u.id)
-                    unfollowUser(u.id)
-                      .then(data => {
-                        if(data.resultCode === 0) {
-                          props.unfollow(u.id)
-                          props.toggleFollowingProgress(false, u.i.d)
-                        }
-                      })
-                 }}>Unfollow</button>
-                : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                    props.toggleFollowingProgress(true, u.id)
-                    followUser(u.id)
-                      .then(data => {
-                        if(data.resultCode === 0) {
-                          props.follow(u.id)
-                          props.toggleFollowingProgress(false, u.id)
-                        }
-                      })
-                }}>Follow</button>
+                ? <button disabled={props.followingInProgress.some(id => id === u.id)}
+                          onClick={() => {props.unfollow(u.id);}}>Unfollow</button>
+                : <button disabled={props.followingInProgress.some(id => id === u.id)}
+                          onClick={() => {props.follow(u.id);}}>Follow</button>
             }
           </div>
           <div>
