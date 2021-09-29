@@ -45,7 +45,6 @@ export const setUserProfile = (userId) => {
       console.log(userId)
       profileAPI.getUser(userId)
         .then(data => {
-          console.log(data)
           dispatch(setUserProfileSuccess(data))
         })
   }

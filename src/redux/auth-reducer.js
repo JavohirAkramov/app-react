@@ -25,6 +25,7 @@ export const setAuthUserData = () => {
   return (dispatch) => {
     headerAPI.authMe()
       .then(data => {
+        console.log(data)
         if(data.resultCode === 0) {
           let {id, email, login} = data.data
           dispatch(setAuthUserDataSuccess(id, email, login));

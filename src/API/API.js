@@ -34,7 +34,7 @@ export const profileAPI = {
 }
 export const headerAPI = {
   authMe: () => {
-    instance.get(`auth/me`)
+    return instance.get(`auth/me`)
       .then(response => {
         return response.data
       })
