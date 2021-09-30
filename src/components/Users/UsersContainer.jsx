@@ -1,8 +1,8 @@
-import React from 'react';
+import Users from './Users';
 import s from './Users.module.css';
 import {getUsers, follow, unfollow} from './../../redux/users-reducer';
+import React from 'react';
 import {connect} from 'react-redux';
-import Users from './Users';
 import * as axios from 'axios';
 import Preloader from './../commons/Preloader/Preloader.js';
 import {usersAPI} from '../../API/API'

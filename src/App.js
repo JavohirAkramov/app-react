@@ -3,9 +3,10 @@ import HeaderContainer from "./components/Header/HeaderContainer.jsx";
 import UsersContainer from "./components/Users/UsersContainer.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import ProfileContainer from "./components/Profile/ProfileContainer.jsx";
-import Dialogs from "./components/Dialogs/Dialogs.jsx";
+import DialogsContainer from "./components/Dialogs/DialogsContainer.jsx";
 import News from "./components/News/News.jsx";
 import Video from "./components/Video/Video.jsx";
+import Login from "./components/Login/Login.jsx"
 import {BrowserRouter, Route} from "react-router-dom"
 
 function App(props) {
@@ -21,11 +22,12 @@ function App(props) {
           />
           <Route
             path="/dialogs"
-            component={Dialogs}
+            component={DialogsContainer}
           />
           <Route path="/news" component={News} />
           <Route path="/video" component={Video} />
           <Route path="/users" component={UsersContainer} />
+          <Route path="/login" render={() => (<Login />)}/>
         </div>
       </div>
     </BrowserRouter>

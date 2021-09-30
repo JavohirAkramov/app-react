@@ -9,7 +9,7 @@ const Header = (props) => {
       <div className={s.logoBlock}>Logo"bu yerda rasm bo'lishi kerak"</div>
       <br/>
       <div className={s.loginBlock}>
-        {props.isLogin ? props.login
+        {props.isAuth ? props.login
         : <NavLink to={"/login"} activeClassName={s.active}>Login</NavLink>}
       </div>
     </header>

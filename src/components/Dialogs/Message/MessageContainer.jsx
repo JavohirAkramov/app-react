@@ -13,6 +13,7 @@ const mapStateToProps = (state) => {
   return {
     messages: state.messagesPage.messages,
     newMessageBody: state.messagesPage.newMessageBody
+
   }
 };
 
