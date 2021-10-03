@@ -27,6 +27,4 @@ let mapStateToProps = (state) => ({
   isAuth: state.authPage.isAuth
 })
 
-let withURLDataContainerComponent = withRouter(ProfileContainer)
-
-export default connect(mapStateToProps, {getUserProfile})(withURLDataContainerComponent);
+export default connect(mapStateToProps, {getUserProfile})(withRouter(ProfileContainer));
