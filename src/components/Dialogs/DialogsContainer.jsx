@@ -2,10 +2,8 @@ import React from 'react';
 import {} from './../../redux/users-reducer';
 import {connect} from 'react-redux';
 import Dialogs from './Dialogs';
+import withAuthRedirect from './../../hoc/withAuthRedirect';;
 
-let mapStateToProps = (state) => ({
-  isAuth: state.authPage.isAuth
-});
+let AuthRedirectComponent = withAuthRedirect(Dialogs);
 
-export default connect(mapStateToProps,
-  {})(Dialogs);
+export default AuthRedirectComponent
