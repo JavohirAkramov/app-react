@@ -7,13 +7,13 @@ let initialState = {
   userId: null,
   email: null,
   login: null,
-  isLogin: false
+  isAuth: false
 };
 
 export const authReducer = (state = initialState, action) => {
   switch(action.type) {
     case SET_AUTH_USER_DATA: {
-      return {...state, ...action.dataUser, isLogin: true}
+      return {...state, ...action.dataUser, isAuth: true}
     }
     default:
       return state;
