@@ -5,7 +5,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as axios from 'axios';
 import Preloader from './../commons/Preloader/Preloader.js';
-import {usersAPI} from '../../API/API'
+import {usersAPI} from '../../API/API';
+import {compose} from 'redux';
+import withAuthRedirect from '../../hoc/withAuthRedirect';
 
 class UsersAPIContainer extends React.Component {
   componentDidMount() {
@@ -51,5 +53,7 @@ let mapStateToProps = (state) => ({
   followingInProgress: state.usersPage.followingInProgress
 });
 
-export default connect(mapStateToProps,
-  {getUsers, follow, unfollow})(UsersAPIContainer);
+export default compose(
+  withAuthRedirect,
+  connect(mapStateToProps,{getUsers, follow, unfollow})
+)(UsersAPIContainer)
