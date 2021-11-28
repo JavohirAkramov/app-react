@@ -3,7 +3,8 @@ import s from './ProfileInfo.module.css';
 
 class ProfileStatus extends React.Component {
   state = {
-    editMode: false
+    editMode: false,
+    title: 'Assalomu alaykum'
   }
   activateEditMode = () => {
     this.setState({
@@ -11,6 +12,8 @@ class ProfileStatus extends React.Component {
     })
   }
   deactivateEditMode() {
+    debugger;
+    console.log("this", this)
     this.setState({
       editMode: false
     })
