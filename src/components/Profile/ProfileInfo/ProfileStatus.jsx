@@ -4,7 +4,7 @@ import s from './ProfileInfo.module.css';
 class ProfileStatus extends React.Component {
   state = {
     editMode: false,
-    title: 'Assalomu alaykum'
+    status: this.props.status
   }
   activateEditMode = () => {
     this.setState({
@@ -12,23 +12,34 @@ class ProfileStatus extends React.Component {
     })
   }
   deactivateEditMode() {
-    debugger;
-    console.log("this", this)
     this.setState({
       editMode: false
     })
+    this.props.updateStatus(this.state.status)
   }
+  changeHandler = (e) => {
+    this.setState({status: e.target.value})
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if(prevProps.status !== this.props.status) {
+        this.setState(this.props)
+    }
+  }
+
   render() {
     return (
       <div>
         {!this.state.editMode &&
             <div>
-              <span onDoubleClick={this.activateEditMode.bind(this)}>{this.props.status}</span>
+              <span onDoubleClick={this.activateEditMode.bind(this)}>
+                {this.state.status ? this.state.status : "no-status"}
+              </span>
             </div>
         }
         {this.state.editMode &&
            <div>
-             <input autoFocus={true} onBlur={ this.deactivateEditMode.bind(this)} value={this.props.status}/>
+             <input onChange={this.changeHandler} autoFocus={true} onBlur={ this.deactivateEditMode.bind(this)} value={this.state.status}/>
            </div>
         }
       </div>

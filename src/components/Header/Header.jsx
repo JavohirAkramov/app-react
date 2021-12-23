@@ -3,7 +3,6 @@ import s from './Header.module.css';
 import {NavLink} from 'react-router-dom';
 
 const Header = (props) => {
-  console.log(props.login);
   return (
     <header className={s.header}>
       <div className={s.logoBlock}>Logo"bu yerda rasm bo'lishi kerak"</div>
