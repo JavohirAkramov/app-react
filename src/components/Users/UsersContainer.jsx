@@ -1,3 +1,4 @@
+import React from "react"
 import Users from './Users';
 import s from './Users.module.css';
 import {follow, unfollow, followingInProgress, getUsers} from './../../redux/users-reducer';
