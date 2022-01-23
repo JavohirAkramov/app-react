@@ -1,8 +1,7 @@
-import react from 'react';
+import React from 'react';
 import s from './ProfileInfo.module.css';
-import image from '../../../assets/images/Bobur va men.jpg';
-import Preloader from './../../commons/Preloader/Preloader.js';
-import ProfileStatus from './ProfileStatus.jsx';
+import Preloader from '../../commons/Preloader/Preloader';
+import ProfileStatus from './ProfileStatus.jsx'
 
 const ProfileInfo = (props) => {
   if(!props.profile) return <Preloader />
@@ -11,12 +10,14 @@ const ProfileInfo = (props) => {
         {/*<img className={s.img} src=" "/>*/}
         <div className={s.descriptionBlock}>
           <img src={props.profile.photos.large}/>
-          {/*<span>{props.profile.userId}</span><br/>
-          <span>{props.profile.aboutMe}</span><br/>*/}
-          <span>{props.profile.fullName}</span><br/>
-          <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+          {/*{props.profile.userId}<br/>
+          {props.profile.fullName}<br/>
+          {props.profile.contacts.facebook}<br/>
+          {props.profile.lookingForAJobDescription}<br/>
+          avatar + description*/}
+          <ProfileStatus status={'this is status'}/>
         </div>
-    </div>
+      </div>
   );
 };
 

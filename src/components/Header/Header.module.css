@@ -2,15 +2,6 @@
   grid-area: h;
  background-color: seagreen;
 }
-.header .logoBlock {
-  float: left;
-}
-.header .loginBlock a {
-  float: right;
-  font-weight: 700;
-  color: white;
-  text-decoration: none;
-}
-.header .loginBlock a.active {
-  color: gold;
+.header  .login {
+
 }

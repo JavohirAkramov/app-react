@@ -1,5 +1,5 @@
 import carpet from './../assets/images/osmon.jpg';
-import {usersAPI} from '../API/API'
+import {usersAPI} from '../API/API';
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -7,14 +7,14 @@ const SET_USERS = 'SET-USERS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET-TOTAL-USERS-COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING';
-const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE-IS-FOLLOWING-PROGRESS';
+const TOGGLE_FOLLOWING_PROGRESS = 'TOGGLE-FOLLOWING-PROGRESS';
 
 let initialState = {
   users: [],
   totalUsersCount: 0,
   pageSize: 10,
   currentPage: 1,
-  isFetching: false,
+  isFetching: true,
   followingInProgress: []
 };
 
@@ -54,7 +54,7 @@ export const usersReducer = (state = initialState, action) => {
     case TOGGLE_IS_FETCHING: {
       return { ...state, isFetching: action.isFetching }
     }
-    case TOGGLE_IS_FOLLOWING_PROGRESS: {
+    case TOGGLE_FOLLOWING_PROGRESS: {
       return {
         ...state,
         followingInProgress: action.isFetching
@@ -73,7 +73,8 @@ export const setUsers = (users) => ({type: SET_USERS, users});
 export const setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, count: totalUsersCount});
 export const setCurrentPage = (currentPageNum) => ({type: SET_CURRENT_PAGE, currentPage: currentPageNum});
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
-export const toggleFollowingProgress = (isFetching, userId) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId});
+export const toggleFollowingProgress = (isFetching, userId) => ({type: TOGGLE_FOLLOWING_PROGRESS, isFetching, userId})
+
 export const getUsers = (currentPage, pageSize) => {
   return (dispatch) => {
     dispatch(toggleIsFetching(true));
@@ -87,18 +88,24 @@ export const getUsers = (currentPage, pageSize) => {
 export const follow = (userId) => {
   return (dispatch) => {
     dispatch(toggleFollowingProgress(true, userId));
-    usersAPI.followUser(userId).then(data => {
-      if(data.resultCode === 0) {dispatch(followSuccess(userId));}
-      dispatch(toggleFollowingProgress(false, userId));
-    })
+    usersAPI.followUser(userId)
+      .then(data => {
+        if(data.resultCode === 0) {
+          dispatch(followSuccess(userId));
+          dispatch(toggleFollowingProgress(false, userId));
+        }
+      })
   }
 }
 export const unfollow = (userId) => {
   return (dispatch) => {
     dispatch(toggleFollowingProgress(true, userId));
-    usersAPI.unfollowUser(userId).then(data => {
-      if(data.resultCode === 0) {dispatch(unfollowSuccess(userId));}
-      dispatch(toggleFollowingProgress(false, userId));
-    })
+    usersAPI.unfollowUser(userId)
+      .then(data => {
+        if(data.resultCode === 0) {
+          dispatch(unfollowSuccess(userId));
+          dispatch(toggleFollowingProgress(false, userId));
+        }
+      })
   }
 }

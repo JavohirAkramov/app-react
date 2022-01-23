@@ -1,22 +1,22 @@
-import React from 'react';
+import React from "react";
 import s from './Header.module.css';
-import {NavLink} from 'react-router-dom';
 import Header from './Header';
-import {getAuthUserData} from './../../redux/auth-reducer';
+import {setAuthUserData} from './../../redux/auth-reducer';
+import * as axios from 'axios';
 import {connect} from 'react-redux';
 
 class HeaderContainer extends React.Component {
   componentDidMount() {
-    this.props.getAuthUserData();
+    this.props.setAuthUserData();
   }
   render() {
     return <Header {...this.props}/>
-  }
+  }f
 };
 
 let mapStateToProps = (state) => ({
-  isAuth: state.authPage.isAuth,
-  login: state.authPage.login
+  login: state.authPage.login,
+  isAuth: state.authPage.isAuth
 })
 
-export default connect(mapStateToProps, {getAuthUserData})(HeaderContainer);
+export default connect(mapStateToProps, {setAuthUserData})(HeaderContainer);

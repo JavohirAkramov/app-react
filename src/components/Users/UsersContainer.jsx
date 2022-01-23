@@ -1,17 +1,21 @@
 import Users from './Users';
 import s from './Users.module.css';
-import {getUsers, follow, unfollow} from './../../redux/users-reducer';
-import React from 'react';
+import {follow, unfollow, followingInProgress, getUsers} from './../../redux/users-reducer';
 import {connect} from 'react-redux';
 import * as axios from 'axios';
 import Preloader from './../commons/Preloader/Preloader.js';
 import {usersAPI} from '../../API/API';
-import {compose} from 'redux';
-import withAuthRedirect from '../../hoc/withAuthRedirect';
+import {compose}from 'redux';
 
 class UsersAPIContainer extends React.Component {
   componentDidMount() {
     this.props.getUsers(this.props.currentPage, this.props.pageSize);
+    // this.props.toggleIsFetching(true);
+    // usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+    //     this.props.toggleIsFetching(false);
+    //     this.props.setUsers(data.items);
+    //     this.props.setTotalUsersCount(data.totalCount)
+    //   })
   }
   onPageChanged = (p) => {
     this.props.getUsers(p, this.props.pageSize);
@@ -38,8 +42,10 @@ class UsersAPIContainer extends React.Component {
          pages={pages}
          follow={this.props.follow}
          unfollow={this.props.unfollow}
+         users={this.props.users}
+         pages={pages}
          followingInProgress={this.props.followingInProgress}
-      />
+       />
     </>
   }
 }
@@ -54,6 +60,5 @@ let mapStateToProps = (state) => ({
 });
 
 export default compose(
-  withAuthRedirect,
-  connect(mapStateToProps,{getUsers, follow, unfollow})
-)(UsersAPIContainer)
+  connect(mapStateToProps, { follow, unfollow, getUsers})
+)(UsersAPIContainer);
