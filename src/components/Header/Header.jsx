@@ -2,13 +2,15 @@ import react from "react";
 import s from './Header.module.css';
 import {NavLink} from 'react-router-dom';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header className={s.header}>
-      <div className={s.logoBlock}>Logo"bu yerda rasm bo'lishi kerak"</div>
-      <div className={s.loginBlock}>
-        <NavLink to={"/login"} activeClassName={s.active}>Login</NavLink>
-      </div>
+      <div className={s.logo}>logo</div>
+      {
+        props.isAuth
+          ? props.login
+          : <NavLink to="/login">login</NavLink>
+      }
     </header>
   );
 };

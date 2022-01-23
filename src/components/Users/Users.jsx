@@ -3,7 +3,11 @@ import s from './Users.module.css';
 import carpet from '../../assets/images/carpet.jpg';
 import {NavLink} from 'react-router-dom';
 import * as axios from 'axios';
+<<<<<<< HEAD
 import {usersAPI} from '../../API/API'
+=======
+import {usersAPI} from './../../API/API'
+>>>>>>> app-br-remembered
 
 const Users = (props) => {
   return <div>
@@ -20,11 +24,16 @@ const Users = (props) => {
       props.users.map(u => {
         return <div>
           <div>
+<<<<<<< HEAD
             <NavLink to={'/profile/' + u.id}>
+=======
+            <NavLink to={"/profile/" + u.id}>
+>>>>>>> app-br-remembered
               <img className={s.avatar} src={u.photos.small || carpet}/>
             </NavLink>
             {
               u.followed
+<<<<<<< HEAD
                 ? <button onClick={() => {
 
                   axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
@@ -52,6 +61,12 @@ const Users = (props) => {
                       })
 
                 }}>Follow</button>
+=======
+                ? <button disabled={props.followingInProgress.some(id => id === u.id)}
+                          onClick={() => {props.unfollow(u.id);}}>Unfollow</button>
+                : <button disabled={props.followingInProgress.some(id => id === u.id)}
+                          onClick={() => {props.follow(u.id);}}>Follow</button>
+>>>>>>> app-br-remembered
             }
           </div>
           <div>

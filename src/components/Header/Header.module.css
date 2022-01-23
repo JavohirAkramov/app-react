@@ -2,6 +2,7 @@
   grid-area: h;
  background-color: seagreen;
 }
+<<<<<<< HEAD
 .header .logoBlock {
   float: left;
 }
@@ -13,4 +14,8 @@
 }
 .header .loginBlock a.active {
   color: gold;
+=======
+.header  .login {
+  
+>>>>>>> app-br-remembered
 }
