@@ -47,6 +47,7 @@ export const authAPI = {
   me() {
     return instance.get(`auth/me`)
       .then(response => {
+        console.log(response)
         if(response.data.resultCode === 0) {
           return response.data
         }

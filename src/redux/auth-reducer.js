@@ -24,6 +24,7 @@ export const setAuthUserData = (userId, email, login) => ({type: SET_AUTH_USER_D
 export const getAuthUserData = () => (dispatch) => {
       authAPI.me()
         .then(data => {
+          console.log(data)
           let {id, email, login} = data.data;
           dispatch(setAuthUserData(id, email, login));
         })
