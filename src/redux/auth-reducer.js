@@ -1,5 +1,5 @@
 import carpet from './../assets/images/osmon.jpg';
-import {headerAPI} from '../API/API';
+import {authAPI} from '../API/API';
 
 const SET_AUTH_USER_DATA = 'SET-AUTH-USER-DATA';
 
@@ -23,7 +23,7 @@ export const authReducer = (state = initialState, action) => {
 export const setAuthUserDataSuccess = (userId, email, login) => ({ type: SET_AUTH_USER_DATA, dataUser: {userId, email, login}});
 export const setAuthUserData = () => {
   return (dispatch) => {
-    headerAPI.authMe()
+    authAPI.authMe()
       .then(data => {
         console.log(data)
         if(data.resultCode === 0) {
@@ -32,4 +32,14 @@ export const setAuthUserData = () => {
         }
       })
   }
+}
+export const login = (email, password, rememberMe) => (dispatch) => {
+    authAPI.login(email, password, rememberMe)
+      .then(data => {
+        console.log(data)
+        if(data.resultCode === 0) {
+          dispatch(setAuthUserData());
+        }
+      })
+
 }
