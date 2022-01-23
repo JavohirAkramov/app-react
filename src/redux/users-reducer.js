@@ -67,19 +67,12 @@ export const usersReducer = (state = initialState, action) => {
   }
 };
 
-<<<<<<< HEAD
-export const follow = (userId) => ({type: FOLLOW, userId});
-export const unfollow = (userId) => ({type: UNFOLLOW, userId});
-=======
 export const followSuccess = (userId) => ({type: FOLLOW, userId});
 export const unfollowSuccess = (userId) => ({type: UNFOLLOW, userId});
->>>>>>> app-br-remembered
 export const setUsers = (users) => ({type: SET_USERS, users});
 export const setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, count: totalUsersCount});
 export const setCurrentPage = (currentPageNum) => ({type: SET_CURRENT_PAGE, currentPage: currentPageNum});
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
-<<<<<<< HEAD
-=======
 export const toggleFollowingProgress = (isFetching, userId) => ({type: TOGGLE_FOLLOWING_PROGRESS, isFetching, userId})
 
 export const getUsers = (currentPage, pageSize) => {
@@ -116,4 +109,3 @@ export const unfollow = (userId) => {
       })
   }
 }
->>>>>>> app-br-remembered
