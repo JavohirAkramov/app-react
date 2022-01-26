@@ -1,12 +1,18 @@
 import React from 'react';
 import { Formik, Form, useField } from 'formik';
 import * as Yup from 'yup';
+import { login } from "../../redux/auth-reducer"
+import { connect } from "react-redux"
+import { Redirect } from "react-router-dom"
 
 
-const Login = () => {
+const Login = (props) => {
+
+  if (props.isAuth) return <Redirect to="/profile" />
+
   return <div>
     <h1>Login</h1>
-    <SignupForm />
+    <SignupForm { ...props }/>
   </div>
 };
 
@@ -45,12 +51,12 @@ const MyCheckbox = ({ children, ...props }) => {
   );
 };
 
-const SignupForm = () => {
+const SignupForm = (props) => {
   return (
     <>
-      <Formik
+          <Formik
         initialValues={{
-          login: '',
+          email: '',
           password: '',
           rememberMe: ''
         }}
@@ -63,20 +69,29 @@ const SignupForm = () => {
             .required('Required')
         })}
         onSubmit={(values, { setSubmitting }) => {
+          console.log(values)
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
+            props.login(values.email, values.password, values.rememberMe);
           }, 400);
         }}
       >
         <Form>
+          <MyTextInput
+            label="Email"
+            name="email"
+            type="email"
+            placeholder="email"
+          />
+          <br />
           <MyTextInput
             label="Login"
             name="login"
             type="text"
             placeholder="login"
           />
-          <br/>
+          <br />
 
           <MyTextInput
             label="Password"
@@ -84,7 +99,7 @@ const SignupForm = () => {
             type="password"
             placeholder="password"
           />
-          <br/>
+          <br />
 
           <MyCheckbox name="rememberMe">
             remember me
@@ -97,5 +112,10 @@ const SignupForm = () => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => ({
+  isAuth: state.authPage.isAuth
+})
+
+const LoginContainer = connect(mapStateToProps, { login })(Login);
+export default LoginContainer
 //alhamdulillah

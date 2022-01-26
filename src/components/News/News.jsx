@@ -158,7 +158,7 @@ const MySelect = ({ label, ...props }) => {
     <div>
       <label htmlFor={props.id || props.name}>{label}</label>
       <select {...field} {...props} />
-      {meta.touched && meta.error ? (
+        {meta.touched && meta.error ? (
         <div className="error">{meta.error}</div>
       ) : null}
     </div>
@@ -238,7 +238,7 @@ const SignupForm = () => {
             <option value="other">Other</option>
           </MySelect>
           <br/>
-          
+
           <MyCheckbox name="acceptedTerms">
             I accept the terms and conditions
           </MyCheckbox>

@@ -1,4 +1,3 @@
-import carpet from './../assets/images/osmon.jpg';
 import { authAPI } from '../API/API';
 
 const SET_AUTH_USER_DATA = 'SET-AUTH-USER-DATA';
@@ -13,7 +12,8 @@ let initialState = {
 export const authReducer = (state = initialState, action) => {
   switch(action.type) {
     case SET_AUTH_USER_DATA: {
-      return {...state, ...action.payload, isAuth: true}
+      console.log(action.payload)
+      return {...state, ...action.payload}
     }
     default:
       return state;
@@ -25,9 +25,9 @@ export const setAuthUserData = () => {
   return (dispatch) => {
     authAPI.authMe()
       .then(data => {
-        console.log(data)
         if(data.resultCode === 0) {
           let {id, email, login} = data.data
+          console.log(data.data)
           dispatch(setAuthUserDataSuccess(id, email, login, true));
         }
       })
@@ -46,7 +46,8 @@ export const logout = () => (dispatch) => {
     authAPI.logout()
       .then(data => {
         if(data.resultCode === 0) {
-          dispatch(setAuthUserData(null, null, null, false))
+          console.log("jjjjjjjjj")
+          dispatch(setAuthUserDataSuccess(null, null, null, false))
         }
       })
 

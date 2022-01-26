@@ -1,4 +1,3 @@
-import carpet from './../assets/images/osmon.jpg';
 import {usersAPI} from '../API/API';
 
 const FOLLOW = 'FOLLOW';
