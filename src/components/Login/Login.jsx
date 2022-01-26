@@ -54,7 +54,7 @@ const MyCheckbox = ({ children, ...props }) => {
 const SignupForm = (props) => {
   return (
     <>
-          <Formik
+      <Formik
         initialValues={{
           email: '',
           password: '',
