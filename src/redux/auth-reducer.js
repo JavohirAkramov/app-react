@@ -1,4 +1,5 @@
 import { authAPI } from '../API/API';
+import { stopSubmit } from 'formik'
 
 const SET_AUTH_USER_DATA = 'SET-AUTH-USER-DATA';
 
@@ -27,7 +28,6 @@ export const setAuthUserData = () => {
       .then(data => {
         if(data.resultCode === 0) {
           let {id, email, login} = data.data
-          console.log(data.data)
           dispatch(setAuthUserDataSuccess(id, email, login, true));
         }
       })
@@ -39,6 +39,10 @@ export const login = (email, password, rememberMe) => (dispatch) => {
         if(data.resultCode === 0) {
           dispatch(setAuthUserData())
         }
+        // else {
+        //   let action = stopSubmit();
+        //   dispatch(action)
+        // }
       })
 
 }
@@ -46,7 +50,6 @@ export const logout = () => (dispatch) => {
     authAPI.logout()
       .then(data => {
         if(data.resultCode === 0) {
-          console.log("jjjjjjjjj")
           dispatch(setAuthUserDataSuccess(null, null, null, false))
         }
       })

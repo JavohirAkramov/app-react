@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { login } from "../../redux/auth-reducer"
 import { connect } from "react-redux"
 import { Redirect } from "react-router-dom"
+import style from "../commons/FormControls.module.css"
 
 
 const Login = (props) => {
@@ -12,7 +13,7 @@ const Login = (props) => {
 
   return <div>
     <h1>Login</h1>
-    <SignupForm { ...props }/>
+    <SignupForm {...props} />
   </div>
 };
 
@@ -104,6 +105,10 @@ const SignupForm = (props) => {
           <MyCheckbox name="rememberMe">
             remember me
           </MyCheckbox>
+
+          {
+            props.error && <div className={style.errorField}></div>
+          }
 
           <button type="submit">Login</button>
         </Form>
