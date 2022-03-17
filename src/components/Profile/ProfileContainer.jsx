@@ -1,11 +1,13 @@
 import React from 'react';
-import Profile from './Profile';
-import * as axios from 'axios';
-import {setUserProfile} from '../../redux/profile-reducer';
-import {connect }from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import withAuthRedirect from '../../hoc/withAuthRedirect.jsx';
+import {connect }from 'react-redux';
 import {compose} from 'redux';
+import * as axios from 'axios';
+import Profile from './Profile';
+import withAuthRedirect from '../../hoc/withAuthRedirect.jsx';
+import {setUserProfile} from '../../redux/profile-reducer';
+import { getProfile } from '../../redux/profile-selector'
+import { getUserId } from '../../redux/auth-selector'
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
@@ -23,9 +25,14 @@ class ProfileContainer extends React.Component {
   }
 };
 
+// let mapStateToProps = (state) => ({
+//   profile: state.profilePage.profile,
+//   authorizedUserId: state.authPage.userId
+// });
+
 let mapStateToProps = (state) => ({
-  profile: state.profilePage.profile,
-  authorizedUserId: state.authPage.userId
+  profile: getProfile(state),
+  authorizedUserId: getUserId(state)
 });
 
 export default compose(
